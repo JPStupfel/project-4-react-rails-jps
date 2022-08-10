@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import {
@@ -12,6 +12,8 @@ import Login from './Login';
 
 
 function App() {
+  // const [currentUser, setCurrentUser] = useState('')
+
   return (
     <div className="App">
       <Navbar />
