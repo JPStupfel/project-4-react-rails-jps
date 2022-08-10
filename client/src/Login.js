@@ -13,9 +13,28 @@ function Login() {
         newCred[event.target.id] = event.target.value
         setCred(newCred)
     }
-    
+
+    function handleSubmit(event){
+        event.preventdefault()
+
+                    fetch('login', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cred),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+            console.log('Success:', data);
+            })
+            .catch((error) => {
+            console.error('Errors:', error);
+            });
+    }
+
   return (
-    <Form style={{'maxWidth': '50%'}}>
+    <Form onSubmit={handleSubmit} style={{'maxWidth': '50%'}}>
 
       <Form.Group className="mb-3" controlId="username">
         <Form.Label>Username</Form.Label>
