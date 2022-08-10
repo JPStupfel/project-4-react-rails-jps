@@ -9,7 +9,7 @@ export default function({user}){
         <Card>
         <Card.Img variant="top" src={user.image} />
         <Card.Body>
-          <Card.Title>{user.name}</Card.Title>
+          <Card.Title>{user.username}</Card.Title>
           <Card.Text>
             {user.bio}
           </Card.Text>

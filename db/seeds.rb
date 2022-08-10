@@ -8,7 +8,7 @@
 
 10.times do 
         User.create(
-        name: Faker::Games::StreetFighter.character,
+        username: Faker::Games::StreetFighter.character,
         bio: "Quote: #{Faker::Games::StreetFighter.quote}. Birthplace: #{Faker::Games::StreetFighter.stage}",
         image: Faker::Avatar.image,
         age: rand(100),

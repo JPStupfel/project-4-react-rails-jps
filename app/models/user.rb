@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
     # validate each of the following attributes
 
-    attributes = [:name, :image, :bio]
+    attributes = [:username, :image, :bio]
      attributes.each do |e|
         validates e, presence: true
      end
