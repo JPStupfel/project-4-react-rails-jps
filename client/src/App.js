@@ -19,7 +19,6 @@ function App() {
     fetch('/me').then(r=>r.json()).then(d=>setCurrentUser(d))
   }, [])
 
-  console.log(currentUser)
 
   return (
     <div className="App">
