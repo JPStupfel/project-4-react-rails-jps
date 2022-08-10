@@ -15,9 +15,9 @@ function Login() {
     }
 
     function handleSubmit(event){
-        event.preventdefault()
+        event.preventDefault()
 
-                    fetch('login', {
+                    fetch('/login', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
