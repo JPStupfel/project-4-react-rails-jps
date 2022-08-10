@@ -4,16 +4,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function Navbar() {
     return (
-        <Nav variant="tabs" defaultActiveKey="/home">
+        <Nav variant="tabs" defaultActiveKey="/">
       <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
+        <Nav.Link href="/">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        <Nav.Link href="/team">View Team</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
+        <Nav.Link href="/projectlist" >
+        projectlist
         </Nav.Link>
       </Nav.Item>
     </Nav>
