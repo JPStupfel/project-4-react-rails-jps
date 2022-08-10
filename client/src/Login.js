@@ -24,7 +24,7 @@ function Login({setCurrentUser}) {
             },
             body: JSON.stringify(cred),
             })
-            .then((response) =>{debugger; response.json()})
+            .then((response) =>{response.json()})
             .then((data) => {
             console.log('Success:', data);
             setCurrentUser(data)
