@@ -2,19 +2,19 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 
-export default function(){
+export default function({user}){
+
     return(
         <Card>
-        <Card.Img variant="top" src="holder.js/100px160" />
+        <Card.Img variant="top" src={user.image} />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>{user.name}</Card.Title>
           <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            {user.bio}
           </Card.Text>
         </Card.Body>
         <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
+          <small className="text-muted">{`Age: ${user.age}`}</small>
         </Card.Footer>
       </Card>
     )

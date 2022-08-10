@@ -5,9 +5,10 @@ export default function Teampage(){
 
     const [teamList, setTeamList] = useState([])
 
+    //fetch users
     useEffect(
         ()=>{
-            fetch('/users').then(r=>r.json()).then(d=>console.log(d))
+            fetch('/users').then(r=>r.json()).then(d=>setTeamList(d))
         },[]
     )
 
@@ -16,7 +17,7 @@ export default function Teampage(){
 return(
 <>
     <>Intro Will Go here</>
-    <TeamCardContainer/>
+    <TeamCardContainer teamList={teamList}/>
 </>
 )
 }
