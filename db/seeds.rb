@@ -11,5 +11,6 @@
         name: Faker::Games::StreetFighter.character,
         bio: "Quote: #{Faker::Games::StreetFighter.quote}. Birthplace: #{Faker::Games::StreetFighter.stage}",
         image: Faker::Avatar.image,
-        age: rand(100))
+        age: rand(100),
+        password: 'fish')
     end

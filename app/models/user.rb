@@ -2,6 +2,8 @@ class User < ApplicationRecord
     # has_many :tasks
     # has_many :projects, through: :tasks
 
+    has_secure_password
+
     # validate each of the following attributes
 
     attributes = [:name, :image, :bio]
