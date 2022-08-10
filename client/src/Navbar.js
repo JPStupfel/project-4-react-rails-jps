@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function Navbar() {
     return (
+      <>
         <Nav variant="tabs" >
       <Nav.Item>
         <Nav.Link  href='/'>Home</Nav.Link>
@@ -21,7 +22,10 @@ function Navbar() {
         Login
         </Nav.Link>
       </Nav.Item>
+      <div id='welcome' >welcome fish</div>
+
     </Nav>
+    </>
       );
 }
 
