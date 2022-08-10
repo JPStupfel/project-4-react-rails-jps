@@ -23,13 +23,13 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar currentUser={currentUser} />
+      <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
 
       <Routes>
         <Route path="/" element={<>Home</>} />
         <Route path="/team" element={<Teampage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
-        <Route path="/user-login" element={<Login />} />
+        <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
 
       </Routes>
     

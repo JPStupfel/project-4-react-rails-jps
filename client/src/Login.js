@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function Login() {
+function Login({setCurrentUser}) {
 
     const [cred, setCred] = useState({password: '', username: ''})
 
@@ -27,6 +27,8 @@ function Login() {
             .then((response) => response.json())
             .then((data) => {
             console.log('Success:', data);
+            setCurrentUser(data)
+
             })
             .catch((error) => {
             console.error('Errors:', error);

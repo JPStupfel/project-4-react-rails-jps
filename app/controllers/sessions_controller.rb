@@ -18,5 +18,15 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        if session[:user_id]
+            session.delete :user_id
+            
+            render json: {}, status: 204
+        else
+            render json: {errors: ['log in first']}, status: 422
+        end
+    end
+
 
 end
