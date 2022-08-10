@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import Teampage from './Teampage';
-
+import Login from './Login';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<>Home</>} />
         <Route path="/team" element={<Teampage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
-        <Route path="/user-login" element={<>Login</>} />
+        <Route path="/user-login" element={<Login />} />
 
       </Routes>
     
