@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import {
@@ -12,11 +12,18 @@ import Login from './Login';
 
 
 function App() {
-  // const [currentUser, setCurrentUser] = useState('')
+  const [currentUser, setCurrentUser] = useState({})
+
+  //set current user by fetch request checked against session on backend
+  useEffect(()=>{
+    fetch('/me').then(r=>r.json()).then(d=>setCurrentUser(d))
+  }, [])
+
+  console.log(currentUser)
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar currentUser={currentUser} />
 
       <Routes>
         <Route path="/" element={<>Home</>} />

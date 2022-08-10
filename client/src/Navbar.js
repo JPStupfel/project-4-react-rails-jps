@@ -2,7 +2,10 @@ import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-function Navbar() {
+function Navbar({currentUser}) {
+
+
+
     return (
       <>
         <Nav variant="tabs" >
@@ -22,7 +25,7 @@ function Navbar() {
         Login
         </Nav.Link>
       </Nav.Item>
-      <div id='welcome' >welcome fish</div>
+      <p id='welcome' >Welcome {currentUser.username}</p>
 
     </Nav>
     </>

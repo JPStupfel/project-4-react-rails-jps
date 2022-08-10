@@ -38,5 +38,12 @@
 }
 
 #welcome {
-  position: absolute; top: 0; right: 10px; width: 100px; text-align:right;
+  display: flexbox;
+  position: absolute; 
+  top: 0; 
+  right: 10px; 
+  /* width: 100px;  */
+  text-align: 
+  right; 
+  text-justify: right;
 }
