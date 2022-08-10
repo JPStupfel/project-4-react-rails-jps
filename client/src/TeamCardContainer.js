@@ -7,22 +7,14 @@ import Row from 'react-bootstrap/Row';
 
 function TeamCardContainer({teamList}) {
 
-  const cards = teamList.map(
-    e=>
-    
-    <UserCard key={e.id} user={e}
-    
-    />)
+  const cards = teamList.map(e=><UserCard key={e.id} user={e}/>)
     
   return (
 
     <CardGroup>
       <Row xs={2} md={4} lg={6} className="g-4">
-      {cards}
-      
+       {cards}
       </Row>
-
-
     </CardGroup>
 
   );
