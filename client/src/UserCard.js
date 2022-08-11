@@ -1,13 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import {BrowserRouter, Routes,Route,} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function({user}){
 
+  let navigate = useNavigate();
+
   function handleClick(event){
-    console.log('click!')
+    navigate(`/team/${user.id}`);
   }
 
     return(
