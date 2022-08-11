@@ -25,11 +25,22 @@ function App() {
       <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
 
       <Routes>
-        <Route path="/" element={<>Home</>} />
-        <Route path="/team" element={currentUser.id ? <Teampage/> : <h1>Log in first!</h1>} />
-        <Route path="/projectlist" element={<>projectlist</>} />
-        <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
 
+        {/* allow these routes whether logged in or not */}
+        <Route path="/" element={<>Home</>} />
+        <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
+        
+        {/* only allow these routes if logged in */}
+        { currentUser.id ?
+          <>
+        <Route path="/team" element={ <Teampage/>} />
+        <Route path="/projectlist" element={<>projectlist</>} />
+        </>
+        // else allow this route
+        :
+        <Route path="/*" element={<h1>Log in first!</h1>} />
+
+        }       
       </Routes>
     
 
