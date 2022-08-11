@@ -16,7 +16,12 @@ function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
   const [teamList, setTeamList] = useState([])
 
-
+    //fetch users
+    useEffect(
+      ()=>{
+          fetch('/users').then(r=>r.json()).then(d=>setTeamList(d)).catch(r=>console.log(r))
+      },[]
+  )
   //set current user by fetch request checked against session on backend
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setCurrentUser(d))
@@ -38,7 +43,7 @@ function App() {
         // if logged in, allow these routes
           <>
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
-        <Route path="/team/:id" element={ <ProfilePage/>} />
+        <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
         </>
         // if not logged in allow these route

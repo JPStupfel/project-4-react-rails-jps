@@ -4,19 +4,18 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import UserCard from './UserCard';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ProfileCard from './ProfileCard';
 
 
-function ProfilePage({}) {
+function ProfilePage({teamList}) {
 
   // const cards = teamList.map(e=><>Profile Page</>)
   let userId = useParams()
+  
+  const selectedUser = teamList.find(e=>e.id == userId.id)
   return (
 
-    <CardGroup>
-      <Row xs={2} md={4} lg={6} className="g-4">
-       <div>Profile for user no. {userId.id}</div>
-      </Row>
-    </CardGroup>
+   <ProfileCard user={selectedUser}/>
 
   );
 }
