@@ -1,12 +1,15 @@
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
 function Navbar({currentUser, setCurrentUser}) {
 
+  const navigate = useNavigate()
+
   function handleLogout(){
     fetch('/logout', {
-      method: 'DELETE'}).then(setCurrentUser({}))
+      method: 'DELETE'}).then(setCurrentUser({id:'0'})).then(navigate('/'))
       
   }
 
