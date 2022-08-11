@@ -11,6 +11,7 @@ import Teampage from './Teampage';
 import Login from './Login';
 import Signup from './Signup';
 import ProfilePage from './ProfilePage';
+import ProjectPage from './ProjectPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
@@ -44,7 +45,7 @@ function App() {
           <>
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
-        <Route path="/projectlist" element={<>projectlist</>} />
+        <Route path="/projectlist" element={<ProjectPage/>} />
         </>
         // if not logged in allow these route
         :
