@@ -26,7 +26,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<>Home</>} />
-        <Route path="/team" element={<Teampage/>} />
+        <Route path="/team" element={currentUser.id ? <Teampage/> : <h1>Log in first!</h1>} />
         <Route path="/projectlist" element={<>projectlist</>} />
         <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
 

@@ -24,7 +24,7 @@ function Navbar({currentUser, setCurrentUser}) {
       </Nav.Item>
       <Nav.Item>
         <Nav.Link  href='/projectlist'>
-        projectlist
+        Projectlist
         </Nav.Link>
       </Nav.Item>
         {currentUser.id  ?
