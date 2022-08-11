@@ -14,6 +14,8 @@ import ProfilePage from './ProfilePage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
+  const [teamList, setTeamList] = useState([])
+
 
   //set current user by fetch request checked against session on backend
   useEffect(()=>{
@@ -35,7 +37,7 @@ function App() {
         { currentUser.id ?
         // if logged in, allow these routes
           <>
-        <Route path="/team" element={ <Teampage/>} />
+        <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
         </>
