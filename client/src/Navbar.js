@@ -25,7 +25,7 @@ function Navbar({currentUser, setCurrentUser}) {
         </Nav.Link>
       </Nav.Item>
         
-        {currentUser != {} ?
+        {currentUser ?
         <div id='welcome' >Welcome {currentUser.username}
           <div>
             <button onClick={handleLogout}>Logout</button>
