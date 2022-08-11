@@ -28,7 +28,7 @@ function App() {
 
         {/* allow these routes whether logged in or not */}
         <Route path="/" element={<>Home</>} />
-        <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
+      
         
         {/* only allow these routes if logged in */}
         { currentUser.id ?
@@ -36,11 +36,13 @@ function App() {
         <Route path="/team" element={ <Teampage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
         </>
-        // else allow this route
+        // if not logged in allow these route
         :
+        <>
         <Route path="/*" element={<h1>Log in first!</h1>} />
-
-        }       
+        <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
+        </>
+        }   
       </Routes>
     
 
