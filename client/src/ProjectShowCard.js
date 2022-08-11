@@ -1,5 +1,5 @@
 import React from "react";
-// import ProjectChart from "./ProjectChart";
+import ProjectChart from "./ProjectChart";
 
 export default function ProjectShowCard({project}){
 
@@ -15,7 +15,7 @@ export default function ProjectShowCard({project}){
            </div>
 
            <div>
-            {/* <ProjectChart/> */}
+            <ProjectChart/>
             <>Team Mate List will go below</>
            </div>
         </span>
