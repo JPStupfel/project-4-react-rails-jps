@@ -9,6 +9,7 @@ import {
 import ReactDOM from "react-dom/client";
 import Teampage from './Teampage';
 import Login from './Login';
+import Signup from './Signup';
 
 
 function App() {
@@ -30,8 +31,9 @@ function App() {
         <Route path="/" element={<>Home</>} />
       
         
-        {/* only allow these routes if logged in */}
+        {/* conditionally render routes */}
         { currentUser.id ?
+        // if logged in, allow these routes
           <>
         <Route path="/team" element={ <Teampage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
@@ -41,6 +43,8 @@ function App() {
         <>
         <Route path="/*" element={<h1>Log in first!</h1>} />
         <Route path="/user-login" element={<Login setCurrentUser={setCurrentUser} />} />
+        <Route path="/user-signup" element={<Signup setCurrentUser={setCurrentUser} />} />
+
         </>
         }   
       </Routes>

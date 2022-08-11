@@ -19,26 +19,37 @@ function Navbar({currentUser, setCurrentUser}) {
       <Nav.Item>
         <Nav.Link  href='/'>Home</Nav.Link>
       </Nav.Item>
+
       <Nav.Item>
         <Nav.Link  href='/team' >Team</Nav.Link>
       </Nav.Item>
+
       <Nav.Item>
-        <Nav.Link  href='/projectlist'>
-        Projectlist
+        <Nav.Link  href='/projectlist'>Projectlist
         </Nav.Link>
       </Nav.Item>
+
         {currentUser.id  ?
+        // if logged in have tab for
         <div id='welcome' >Welcome {currentUser.username}
           <div>
             <button onClick={handleLogout}>Logout</button>
           </div>
         </div> 
       :     
+      // else if not logged in have tab for
+          <>
         <Nav.Item>
           <Nav.Link  href='/user-login'>
           Login
           </Nav.Link>
         </Nav.Item> 
+        <Nav.Item>
+          <Nav.Link  href='/user-signup'>
+          Signup
+          </Nav.Link>
+        </Nav.Item> 
+        </>
         }
 
     </Nav>
