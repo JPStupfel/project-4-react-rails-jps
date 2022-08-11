@@ -10,7 +10,7 @@ import ReactDOM from "react-dom/client";
 import Teampage from './Teampage';
 import Login from './Login';
 import Signup from './Signup';
-
+import ProfilePage from './ProfilePage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
@@ -36,6 +36,7 @@ function App() {
         // if logged in, allow these routes
           <>
         <Route path="/team" element={ <Teampage/>} />
+        <Route path="/team/:id" element={ <ProfilePage/>} />
         <Route path="/projectlist" element={<>projectlist</>} />
         </>
         // if not logged in allow these route
