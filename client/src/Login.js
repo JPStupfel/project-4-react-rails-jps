@@ -26,7 +26,7 @@ function Login({setCurrentUser}) {
             })
             .then((response) =>response.json())
             .then((data) => {
-            console.log( await data);
+            console.log( data);
             setCurrentUser(data)
 
             })
