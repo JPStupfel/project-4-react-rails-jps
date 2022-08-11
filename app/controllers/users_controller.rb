@@ -14,6 +14,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def show
+        user = User.find_by id: params[:id]
+        if user
+            render json: user, status: 201
+        else
+            render json: {errrors: ['log in first']}, status: 401
+        end
+    end
+
     private
     def user_params
         params.permit :username, :bio, :image, :age, :password, :password_confirmation
