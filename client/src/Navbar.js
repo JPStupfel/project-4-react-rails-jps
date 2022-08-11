@@ -24,8 +24,7 @@ function Navbar({currentUser, setCurrentUser}) {
         projectlist
         </Nav.Link>
       </Nav.Item>
-        
-        {currentUser ?
+        {currentUser.id  ?
         <div id='welcome' >Welcome {currentUser.username}
           <div>
             <button onClick={handleLogout}>Logout</button>

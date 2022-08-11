@@ -12,7 +12,7 @@ import Login from './Login';
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({id: null})
 
   //set current user by fetch request checked against session on backend
   useEffect(()=>{
