@@ -1,10 +1,11 @@
 
 import React, {useState} from 'react';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function Login({setCurrentUser}) {
-
+    const navigate = useNavigate()
     const [cred, setCred] = useState({password: '', username: ''})
 
     function handleChange(event){
@@ -26,9 +27,8 @@ function Login({setCurrentUser}) {
             })
             .then((response) =>response.json())
             .then((data) => {
-            console.log( data);
-            setCurrentUser(data)
-
+            setCurrentUser(data);
+            navigate('/');
             })
             .catch((error) => {
             console.error('Errors:', error);

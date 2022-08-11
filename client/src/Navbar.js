@@ -9,7 +9,7 @@ function Navbar({currentUser, setCurrentUser}) {
 
   function handleLogout(){
     fetch('/logout', {
-      method: 'DELETE'}).then(setCurrentUser({id:'0'})).then(navigate('/'))
+      method: 'DELETE'}).then(()=> {setCurrentUser({}); navigate('/')})
       
   }
 
