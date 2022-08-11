@@ -13,10 +13,12 @@ function ProfilePage({teamList}) {
   let userId = useParams()
   
   const selectedUser = teamList.find(e=>e.id == userId.id)
+
   return (
-
-   <ProfileCard user={selectedUser}/>
-
+    <>
+    {/* conditional logic below to avoid loading errors */}
+   {selectedUser ? <ProfileCard user={selectedUser}/> : null}
+    </>
   );
 }
 
