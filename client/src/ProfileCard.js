@@ -2,8 +2,9 @@ import React from "react";
 import UserChart from "./UserChart";
 
 export default function ProfileCard({user}){
-    return(
 
+    return(
+        
         <span>
             <img src={user.image} />
             <div className="bio-box">

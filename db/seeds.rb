@@ -14,3 +14,12 @@
         age: rand(100),
         password: 'fish')
     end
+
+
+10.times do 
+    Project.create(
+        name: Faker::Games::Pokemon.move,
+        details: Faker::Quotes::Shakespeare.hamlet_quote,
+        duedate: Date.today+rand(10000),
+        budget: rand(10000000))
+end
