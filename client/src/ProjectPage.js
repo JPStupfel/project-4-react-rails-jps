@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import TeamCardContainer from "./TeamCardContainer";
+import ProjectCardContainer from "./ProjectCardContainer";
 
-export default function ProjectPage({teamList, setTeamList}){
+
+export default function ProjectPage({projectList, setProjectList}){
 
 
 
@@ -9,7 +10,7 @@ export default function ProjectPage({teamList, setTeamList}){
 return(
 <>
     <>Intro Will Go here</>
-    {/* <TeamCardContainer teamList={teamList}/> */}
+    <ProjectCardContainer projectList={projectList}/>
 </>
 )
 }

@@ -16,6 +16,14 @@ import ProjectPage from './ProjectPage';
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
   const [teamList, setTeamList] = useState([])
+  const [projectList, setProjectList] = useState([])
+
+      //fetch users
+      useEffect(
+        ()=>{
+            fetch('/projects').then(r=>r.json()).then(d=>setProjectList(d)).catch(r=>console.log(r))
+        },[]
+    )
 
     //fetch users
     useEffect(
@@ -45,7 +53,7 @@ function App() {
           <>
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
-        <Route path="/projectlist" element={<ProjectPage/>} />
+        <Route path="/projectlist" element={<ProjectPage projectList={projectList} setProjectList={setProjectList}/>} />
         </>
         // if not logged in allow these route
         :
