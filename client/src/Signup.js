@@ -10,8 +10,8 @@ function Signup({setCurrentUser}) {
 
 
 
-    const forms = Object.keys(newUser).map(e=>
-        <Form.Group className="mb-3" controlId={e}>
+    const forms = Object.keys(newUser).map(e=>{
+       return ( <Form.Group className="mb-3" controlId={e}>
         <Form.Label>{e}</Form.Label>
         <Form.Control 
         onChange={handleChange} 
@@ -19,14 +19,15 @@ function Signup({setCurrentUser}) {
         placeholder={`Enter ${e}`}/>
         <Form.Text className="text-muted">
         </Form.Text>
-      </Form.Group>
+      </Form.Group>)
+    }
     )
 
 
     function handleChange(event){
         event.preventDefault()
         let prosUser = {...newUser}
-        newUser[event.target.id] = event.target.value
+        prosUser[event.target.id] = event.target.value
         setNewUser(prosUser)
     }
 
@@ -49,7 +50,6 @@ function Signup({setCurrentUser}) {
             console.error('Errors:', error);
             });
     }
-console.log(newUser)
 
 
   return (
