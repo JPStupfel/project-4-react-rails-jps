@@ -8,7 +8,7 @@ export default function Teampage(){
     //fetch users
     useEffect(
         ()=>{
-            fetch('/users').then(r=>r.json()).then(d=>setTeamList(d))
+            fetch('/users').then(r=>r.json()).then(d=>setTeamList(d)).catch(r=>console.log(r))
         },[]
     )
 

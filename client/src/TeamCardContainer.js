@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 function TeamCardContainer({teamList}) {
 
-  const cards = teamList.map(e=><UserCard key={e.id} user={e}/>)
+  const cards = teamList.length ? teamList.map(e=><UserCard key={e.id} user={e}/>) : null
     
   return (
 

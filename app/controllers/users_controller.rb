@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     def index
-        render json: User.all, status: 200
+        if session[:user_id]
+         render json: User.all, status: 200
+        else
+            render json: {errors: ['sign in first']}, status: 422
+        end
     end
 
     def create
