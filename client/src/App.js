@@ -12,6 +12,7 @@ import Login from './Login';
 import Signup from './Signup';
 import ProfilePage from './ProfilePage';
 import ProjectPage from './ProjectPage';
+import ProjectShowPage from './ProjectShowPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
@@ -54,6 +55,7 @@ function App() {
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
         <Route path="/projectlist" element={<ProjectPage projectList={projectList} setProjectList={setProjectList}/>} />
+        <Route path="/projectlist/:id" element={ <ProjectShowPage projectList={projectList}/>} />
         </>
         // if not logged in allow these route
         :
