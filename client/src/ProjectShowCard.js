@@ -6,15 +6,17 @@ export default function ProjectShowCard({project}){
     return(
         
         <span>
-            <img src={project.image} />
+            
             <div className="bio-box">
-                <p>Bio: {project.bio}</p>
-                <p>Age: {project.age}</p>
+                <p>Project Name: {project.name}</p>
+                <p>Details: {project.details}</p>
+                <p>Budget: ${project.budget}</p>
+                <p>Due Date: {project.duedate}</p>
            </div>
 
            <div>
             {/* <ProjectChart/> */}
-            <>Project List will go below</>
+            <>Team Mate List will go below</>
            </div>
         </span>
     )
