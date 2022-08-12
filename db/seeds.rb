@@ -23,3 +23,19 @@
         duedate: Date.today+rand(10000),
         budget: rand(10000000))
 end
+
+# each user should have 3 tasks in each project.
+
+Project.all.each do |project|
+    User.all.each do |user|
+
+        (1..3).each do |e|
+            Task.create(
+                name: "task number #{e}",
+                user_id: user.id,
+                project_id: project.id
+            )
+        end
+    end
+end
+

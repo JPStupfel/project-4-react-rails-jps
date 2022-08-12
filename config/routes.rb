@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :tasks
   resources :projects, only: [:index, :create, :show]
   resources :users, only: [:index, :create, :show]
 
