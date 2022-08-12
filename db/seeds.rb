@@ -28,14 +28,24 @@ end
 
 Project.all.each do |project|
     User.all.each do |user|
-
         (1..3).each do |e|
             Task.create(
                 name: "task number #{e}",
                 user_id: user.id,
-                project_id: project.id
+                project_id: project.id,
+                is_complete: false
             )
         end
     end
 end
 
+Project.all.each do |project|
+
+    project.tasks.each do |task|
+
+        Sequence.create(
+                        parent_id: task.id,
+                        child_id: task.id + 1
+                    )
+    end
+end
