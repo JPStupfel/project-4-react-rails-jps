@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :sequences
-  resources :tasks
+  resources :tasks, only: [:index]
   resources :projects, only: [:index, :create, :show]
   resources :users, only: [:index, :create, :show]
 
