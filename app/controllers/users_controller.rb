@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: 201
         else
-            byebug
+            
             render json: {errors: user.errors.full_error_messages}, status: 422
         end
     end
