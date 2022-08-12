@@ -1,7 +1,10 @@
 import React from "react";
 import ProjectChart from "./ProjectChart";
+import ProjectShowTaskCard from "./ProjectShowTaskCard";
 
 export default function ProjectShowCard({project}){
+    
+    const tasks = project.tasks.map(e=><ProjectShowTaskCard task={e} key={e.id}/>)
 
     return(
         
@@ -16,7 +19,7 @@ export default function ProjectShowCard({project}){
 
            <div>
             <ProjectChart/>
-            <>Team Mate List will go below</>
+            {tasks}
            </div>
         </span>
     )

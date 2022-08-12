@@ -55,7 +55,7 @@ function App() {
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
         <Route path="/projectlist" element={<ProjectPage projectList={projectList} setProjectList={setProjectList}/>} />
-        <Route path="/projectlist/:id" element={ <ProjectShowPage projectList={projectList}/>} />
+        <Route path="/projectlist/:id" element={ <ProjectShowPage />} />
         </>
         // if not logged in allow these route
         :

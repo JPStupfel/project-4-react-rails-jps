@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { useParams, use } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import ProjectCard from './ProjectCard';
@@ -7,12 +8,16 @@ import Row from 'react-bootstrap/Row';
 import ProjectShowCard from './ProjectShowCard';
 
 
-function ProjectShowPage({projectList}) {
+function ProjectShowPage({}) {
 
-  // const cards = teamList.map(e=><>Profile Page</>)
   let projectId = useParams()
-  
-  const selectedProject = projectList.find(e=>e.id == projectId.id)
+ 
+ 
+  const [selectedProject, setSelectedProject] = useState(null)
+
+  useEffect(()=>{
+    fetch(`/projects/${projectId.id}`).then(r=>r.json()).then(d=>setSelectedProject(d))
+  },[])
 
   return (
     <>
