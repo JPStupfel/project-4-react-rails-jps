@@ -6,13 +6,14 @@ class Task < ApplicationRecord
     has_many :child_sequences, :class_name => 'Sequence', :foreign_key => 'parent_id'
     has_many :parent_sequences, :class_name => 'Sequence', :foreign_key => 'child_id'
 
-    def user
-        User.find self.user_id
+     def username
+        user = User.find self.user.id
+        user.username
     end
 
-    def project
-        Project.find self.project_id
-    end
+    # def project
+    #     Project.find self.project_id
+    # end
 
     def children
         array_of_sequences = self.child_sequences

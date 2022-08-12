@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     def show
         project = Project.find_by id: params[:id]
         if project
-            render json: project, serializer: ProjectShowSerializer
+            render json: project, serializer: ProjectShowSerializer, status: 200
         else
             render json: {errrors: ['log in first']}, status: 401
         end

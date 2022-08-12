@@ -3,6 +3,9 @@ import React from "react";
 export default function ProjectShowTaskCard({task}){
     
     return(
-        <li>{task.name}</li>
+        <div>
+        <li>Task name: {task.name}</li>
+        <li>Assigned to: {task.username}</li>
+        </div>
     )
 }
