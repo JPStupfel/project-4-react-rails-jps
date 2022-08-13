@@ -5,7 +5,6 @@ import ProjectShowTaskCard from "./ProjectShowTaskCard";
 export default function ProjectShowCard({project}){
     
     const tasks = project.tasks.map(e=><ProjectShowTaskCard task={e} key={e.id}/>)
-
     return(
         
         <span>
@@ -15,6 +14,7 @@ export default function ProjectShowCard({project}){
                 <p>Details: {project.details}</p>
                 <p>Budget: ${project.budget}</p>
                 <p>Due Date: {project.duedate}</p>
+
            </div>
 
            <div>
