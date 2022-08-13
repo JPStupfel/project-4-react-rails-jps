@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     def show
         user = User.find_by id: params[:id]
         if user
-            render json: user, status: 201
+            render json: user, serializer: UserTasksSerializer ,status: 201
         else
             render json: {errrors: ['log in first']}, status: 401
         end
