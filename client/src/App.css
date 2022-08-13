@@ -47,3 +47,19 @@
   right; 
   text-justify: right;
 }
+
+.tasklist{
+  display:table-row;
+  height: 100%;
+  text-align: 
+  left; 
+  text-justify: left;
+  
+}
+.taskItem{
+  display: inline;
+  list-style-type:none;
+  border: 1px;
+  border-style: solid;
+  padding: 3px;
+}

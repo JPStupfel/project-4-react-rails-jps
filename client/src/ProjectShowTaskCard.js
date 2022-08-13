@@ -1,11 +1,26 @@
-import React from "react";
 
-export default function ProjectShowTaskCard({task}){
-    
-    return(
-        <div>
-        <li>Task name: {task.name}</li>
-        <li>Assigned to: {task.username}</li>
-        </div>
-    )
+import ListGroup from 'react-bootstrap/ListGroup';
+
+function ProjectShowTaskCard({task}) {
+  const alertClicked = () => {
+    alert('You clicked the third ListGroupItem');
+  };
+
+  const spanListItem = (
+            <ul className='tasklist'>
+                <li className='taskItem'>{task.name}</li>              
+                <li className='taskItem'> Assigned to {task.username}</li>
+                <li className='taskItem'>{task.is_complete ? 'Complete' : 'Not Complete'}</li>
+            </ul>
+  )
+
+  return (
+    <ListGroup>
+      <ListGroup.Item action onClick={alertClicked}>
+       {spanListItem}
+      </ListGroup.Item>
+    </ListGroup>
+  );
 }
+
+export default ProjectShowTaskCard;
