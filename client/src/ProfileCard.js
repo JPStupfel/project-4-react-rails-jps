@@ -1,5 +1,6 @@
 import React from "react";
 import UserChart from "./UserChart";
+import UserShowProjectContainer from "./UserShowProjectContainer";
 
 export default function ProfileCard({user}){
 
@@ -14,8 +15,10 @@ export default function ProfileCard({user}){
 
            <div>
             <UserChart/>
-            <>Project List will go below</>
            </div>
+           <h1>All Projects I'm involved in!</h1>
+           <UserShowProjectContainer projectList={user.projects}/>
+
         </span>
     )
 }
