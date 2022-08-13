@@ -6,5 +6,4 @@ class UserTasksSerializer < ActiveModel::Serializer
   end
 
   has_many :tasks
-  # has_many :projects
 end
