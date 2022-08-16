@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :sequences
   resources :tasks, only: [:index]
-  resources :projects, only: [:index, :create, :show]
+  resources :projects, only: [:index, :create, :show, :update]
   resources :users, only: [:index, :create, :show]
 
   post "/login", to: 'sessions#create'

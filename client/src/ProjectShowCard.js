@@ -3,8 +3,10 @@ import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
 
 export default function ProjectShowCard({project, onClickEditButton}){
-    
+    //if no project, return null to avoid no ref error on first load
     if (!project){return null}
+
+
     const tasks = project.tasks.map(e=><ProjectShowTaskCard task={e} key={e.id}/>)
     
     

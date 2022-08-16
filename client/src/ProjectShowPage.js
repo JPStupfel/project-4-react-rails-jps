@@ -22,7 +22,7 @@ function ProjectShowPage({}) {
   onClickEditButton={onClickEditButton} 
   project={selectedProject}/> 
 
-  const editForm = <ProjectEditForm project={selectedProject}/>
+  const editForm = <ProjectEditForm handleEditProject={handleEditProject} setIsEditProject={setIsEditProject} project={selectedProject}/>
    
 
   useEffect(()=>{
@@ -31,6 +31,10 @@ function ProjectShowPage({}) {
    
   function onClickEditButton(event){
     setIsEditProject(prev=>!prev)
+  }
+
+  function handleEditProject(updatedProject){
+    setSelectedProject(updatedProject)
   }
 
 

@@ -28,6 +28,19 @@ class ProjectsController < ApplicationController
         end
     end
 
+    def update
+        # byebug
+            project = Project.find params['id']
+            if project.valid?
+                project.update project_params
+                render json: project, status: 202
+            else
+                render json: {errors: project.errors.full_messages}, status: 422
+            end
+        
+
+    end
+
     private
     def project_params
         params.permit :name, :details, :duedate, :budget

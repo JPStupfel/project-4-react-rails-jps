@@ -43,7 +43,7 @@ function ProjectAddForm({handleAddProject, setIsAddProject}) {
             })
             .then((response) =>response.json())
             .then((data) => {
-              handleAddProject(data);
+            handleAddProject(data);
             setIsAddProject(prev=>!prev)
             ;
             })
