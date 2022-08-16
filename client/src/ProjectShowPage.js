@@ -14,15 +14,20 @@ function ProjectShowPage({}) {
  
  
   const [selectedProject, setSelectedProject] = useState(null)
+  const [isEditProject, setIsEditProject] = useState(false)
 
   useEffect(()=>{
     fetch(`/projects/${projectId.id}`).then(r=>r.json()).then(d=>setSelectedProject(d))
   },[])
+   
+  function onClickEditButton(event){
+    setIsEditProject(prev=>!prev)
+  }
+
 
   return (
     <>
-    {/* conditional logic below to avoid loading errors */}
-   {selectedProject ? <ProjectShowCard project={selectedProject}/> : null}
+   <ProjectShowCard onClickEditButton={onClickEditButton} project={selectedProject}/> 
     </>
   );
 }
