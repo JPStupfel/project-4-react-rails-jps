@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
+import ProjectShowTaskCardAdder from "./ProjectShowTaskCardAdder";
 
 export default function ProjectShowCard({project, onClickEditButton}){
     //will contain an array of id's that are checked
@@ -46,7 +47,12 @@ export default function ProjectShowCard({project, onClickEditButton}){
                 <ProjectChart/>
                 <div>
                     {checkedTasks.length ? <button onClick={()=>checkedTasks.forEach(e=>handleDeleteTasks(e))}>Delete Checked Tasks?</button> : null}
+                    
                     {tasksCards}
+                    <ProjectShowTaskCardAdder/>
+
+                    <button>Add Task!</button>
+
                 </div>
            </div>
         </span>
