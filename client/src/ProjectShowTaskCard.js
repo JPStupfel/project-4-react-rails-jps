@@ -38,9 +38,17 @@ function ProjectShowTaskCard({task}) {
 
                 {usernameLi}  
 
-                <li className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
+                <li onClick={handleCompletedClick} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
             </ul>
   )
+
+  function handleCompletedClick(event){
+    const editTask = {...updaterTask}
+    editTask['is_complete'] = !editTask['is_complete']
+    setUpdaterTask(editTask)
+    handlePost(editTask)
+
+  }
 
   function handleChange(e){
     const editTask = {...updaterTask}
@@ -53,21 +61,25 @@ function ProjectShowTaskCard({task}) {
     event.preventDefault();
     setIsEdit(null)
     console.log(updaterTask);
-    fetch(`/tasks/${updaterTask.id}`, {
-      method: 'PATCH', // or 'PUT'
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updaterTask),
-      })
-      .then((response) =>response.json())
-      .then((data) => {
-      console.log(data)
-      ;
-      })
-      .catch((error) => {
-      console.error('Errors:', error);
-      });
+    handlePost(updaterTask)
+  }
+
+  function handlePost(task){
+  fetch(`/tasks/${updaterTask.id}`, {
+    method: 'PATCH', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(task),
+    })
+    .then((response) =>response.json())
+    .then((data) => {
+    console.log(data)
+    ;
+    })
+    .catch((error) => {
+    console.error('Errors:', error);
+    });
   }
 
   return (
