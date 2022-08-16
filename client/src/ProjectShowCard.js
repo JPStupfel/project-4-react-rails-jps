@@ -1,21 +1,29 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
 
 export default function ProjectShowCard({project, onClickEditButton}){
     //will contain an array of id's that are checked
     const [checkedTasks, setCheckedTasks] = useState([])
+    const [excludeTasks, setExcludeTasks] = useState([])
+    
 
     //if no project, return null to avoid no ref error on first load
     if (!project){return null}
 
+    const tasks = project.tasks.filter(e=>excludeTasks.includes(e.id)==false)
+    
 
-    const tasks = project.tasks.map(e=><ProjectShowTaskCard task={e} key={e.id} handleCheckBox={handleCheckBox}/>)
+    const tasksCards = tasks.map(e=><ProjectShowTaskCard task={e} key={e.id} handleCheckBox={handleCheckBox}/>)
     
     function handleCheckBox(event){
         const newCheckedTasks = [...checkedTasks]
         newCheckedTasks.push(event.target.id)
         setCheckedTasks(newCheckedTasks)
+    }
+
+    function handleDeleteTasks(task_id){
+        fetch(`/tasks/${task_id}`, {method:'DELETE'}).then(setExcludeTasks(prev=>[...prev, parseInt(task_id,10)])).then(console.log(excludeTasks)).catch(e=>console.log(e))
     }
     
     
@@ -34,8 +42,8 @@ export default function ProjectShowCard({project, onClickEditButton}){
            <div>
                 <ProjectChart/>
                 <div>
-                    {checkedTasks.length ? <button>Delete Checked Tasks?</button> : null}
-                    {tasks}
+                    {checkedTasks.length ? <button onClick={()=>checkedTasks.forEach(e=>handleDeleteTasks(e))}>Delete Checked Tasks?</button> : null}
+                    {tasksCards}
                 </div>
            </div>
         </span>

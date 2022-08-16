@@ -15,6 +15,16 @@ class TasksController < ApplicationController
 
     end
 
+    def destroy
+        task = Task.find params['id']
+        if task.valid?
+            task.destroy
+            render json: {message: "deleted"}, status: 204
+        else
+            render json: {errors: task.errors.full_messages}, status:422
+        end
+    end
+
     private
     def task_params 
         params.permit :name, :is_complete
