@@ -9,26 +9,66 @@ function ProjectShowTaskCard({task}) {
 
   const [isEdit, setIsEdit] = useState(null)
 
+  const [updaterTask, setUpdaterTask] = useState(task)
+
   const formReplacer =  
-  <form onSubmit={(e)=>{e.preventDefault();setIsEdit(null)}} className='taskItem'>
-    <input placeholder={task.name}></input>
+  <form onSubmit={handleSubmit} className='taskItem'>
+    <input
+    id={isEdit}
+    value={updaterTask[isEdit]}
+    onChange={handleChange}
+    ></input>
   </form>
 
   const nameLi =  <li 
                     onClick={(e)=>{setIsEdit(e.target.id)}} 
                     id='name' 
                     className='taskItem'
-                    >{task.name}</li> 
+                    >{updaterTask.name}</li> 
+  const usernameLi =  <li 
+                    id='username' 
+                    className='taskItem'
+                    >Assigned to: {updaterTask.username}</li> 
+
 
   const spanListItems = (
             <ul className='tasklist'>
 
                 {isEdit=='name' ? formReplacer : nameLi }     
 
-                <li className='taskItem'> Assigned to {task.username}</li>
-                <li className='taskItem'>{task.is_complete ? 'Complete' : 'Not Complete'}</li>
+                {usernameLi}  
+
+                <li className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
             </ul>
   )
+
+  function handleChange(e){
+    const editTask = {...updaterTask}
+    editTask[e.target.id] = e.target.value
+    setUpdaterTask(editTask)
+
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    setIsEdit(null)
+    console.log(updaterTask);
+    fetch(`/tasks/${updaterTask.id}`, {
+      method: 'PATCH', // or 'PUT'
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updaterTask),
+      })
+      .then((response) =>response.json())
+      .then((data) => {
+      console.log(data)
+      ;
+      })
+      .catch((error) => {
+      console.error('Errors:', error);
+      });
+  }
 
   return (
     <ListGroup>
