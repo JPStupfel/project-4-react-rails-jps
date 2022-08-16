@@ -6,6 +6,7 @@ import ProjectCard from './ProjectCard';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProjectShowCard from './ProjectShowCard';
+import ProjectEditForm from './ProjectEditForm'
 
 
 function ProjectShowPage({}) {
@@ -21,7 +22,7 @@ function ProjectShowPage({}) {
   onClickEditButton={onClickEditButton} 
   project={selectedProject}/> 
 
-  const editForm = <>will edit</>
+  const editForm = <ProjectEditForm project={selectedProject}/>
    
 
   useEffect(()=>{
