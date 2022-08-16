@@ -16,6 +16,14 @@ function ProjectShowPage({}) {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isEditProject, setIsEditProject] = useState(false)
 
+  const showProject = 
+  <ProjectShowCard 
+  onClickEditButton={onClickEditButton} 
+  project={selectedProject}/> 
+
+  const editForm = <>will edit</>
+   
+
   useEffect(()=>{
     fetch(`/projects/${projectId.id}`).then(r=>r.json()).then(d=>setSelectedProject(d))
   },[])
@@ -25,11 +33,7 @@ function ProjectShowPage({}) {
   }
 
 
-  return (
-    <>
-   <ProjectShowCard onClickEditButton={onClickEditButton} project={selectedProject}/> 
-    </>
-  );
-}
+  return (<>{isEditProject ? editForm : showProject}</>)
 
+}
 export default ProjectShowPage;
