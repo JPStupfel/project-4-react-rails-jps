@@ -11,7 +11,7 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
 
   
 
-    const tasks = project.tasks.filter(e=>excludeTasks.includes(e.id)==false)
+    const tasks = taskList.filter(e=>excludeTasks.includes(e.id)==false)
     
 
     const tasksCards = tasks.map(e=><ProjectShowTaskCard task={e} key={e.id} handleCheckBox={handleCheckBox}/>)
@@ -27,6 +27,12 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
         .then(
             setExcludeTasks(prev=>[...prev, parseInt(task_id,10)]))
             .then(setCheckedTasks([])).catch(e=>console.log(e))
+    }
+
+    function handleAddTask(task){
+       const newTaskList = [...taskList, task]
+       setTaskList(newTaskList)
+       console.log(task)
     }
     
     
@@ -50,7 +56,8 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
                     {tasksCards}
                     <ProjectShowTaskCardAdder
                     project={project}
-                    teamList={teamList}/>
+                    teamList={teamList}
+                    handleAddTask={handleAddTask}/>
 
 
                 </div>

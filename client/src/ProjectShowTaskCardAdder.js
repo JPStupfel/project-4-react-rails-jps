@@ -2,18 +2,15 @@
 import React, {useState} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function ProjectShowTaskCardAdder({teamList, project}) {
+function ProjectShowTaskCardAdder({handleAddTask, teamList, project}) {
 
 
-  // const [isEdit, setIsEdit] = useState(null)
-
-  const [updaterTask, setUpdaterTask] = useState(
-    {
-    "name": "",
-    "user_id": 0,
+   const blankTask ={"name": "",
+    "user_id": teamList[0].id,
     "project_id": project.id,
     "is_complete": false}
-  )
+
+  const [updaterTask, setUpdaterTask] = useState(blankTask)
 
   const dropDown = 
   <select
@@ -30,7 +27,11 @@ function ProjectShowTaskCardAdder({teamList, project}) {
   const spanListItems = (
             <form onSubmit={handleSubmit} className='tasklist'>
 
-                <input id='name' onChange={(e)=>handleChange(e)}/>
+                <input
+                id='name'
+                onChange={(e)=>handleChange(e)}
+                value= {updaterTask['name']}
+                />
                 {dropDown}
                 <li onClick={(e)=>{handleCompletedClick(e)}} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
 
@@ -59,8 +60,8 @@ function ProjectShowTaskCardAdder({teamList, project}) {
 
   function handleSubmit(event){
     event.preventDefault();
-    console.log(updaterTask);
     handlePost(updaterTask)
+    
   }
 
   function handlePost(task){
@@ -73,8 +74,8 @@ function ProjectShowTaskCardAdder({teamList, project}) {
     })
     .then((response) =>response.json())
     .then((data) => {
-    console.log(data)
-    ;
+    handleAddTask(data);
+    setUpdaterTask(blankTask)
     })
     .catch((error) => {
     console.error('Errors:', error);
