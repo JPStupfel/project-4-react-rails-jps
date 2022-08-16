@@ -25,8 +25,17 @@ class TasksController < ApplicationController
         end
     end
 
+    def create
+        task = Task.create task_params
+        if task.valid?
+            render json: task, status: 201
+        else
+            render json: {errors: task.errors.full_error_messages}, status: 422
+        end
+    end
+
     private
     def task_params 
-        params.permit :name, :is_complete
+        params.permit :name, :is_complete, :user_id, :project_id
     end
 end

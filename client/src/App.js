@@ -64,7 +64,7 @@ function App() {
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage  teamList={teamList}/>} />
         <Route path="/projectlist" element={<ProjectPage handleAddProject={handleAddProject} projectList={projectList} setProjectList={setProjectList}/>} />
-        <Route path="/projectlist/:id" element={ <ProjectShowPage />} />
+        <Route path="/projectlist/:id" element={ <ProjectShowPage teamList={teamList} />} />
         {/* <Route path="/projectlist/:id/edit" element={<>let's edit</>} /> */}
 
         </>

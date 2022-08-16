@@ -4,7 +4,7 @@ import ProjectShowCard from './ProjectShowCard';
 import ProjectEditForm from './ProjectEditForm'
 
 
-function ProjectShowPage({}) {
+function ProjectShowPage({teamList}) {
 
   let projectId = useParams()
  
@@ -15,7 +15,8 @@ function ProjectShowPage({}) {
   const showProject = 
   <ProjectShowCard 
   onClickEditButton={onClickEditButton} 
-  project={selectedProject}/> 
+  project={selectedProject}
+  teamList={teamList}/> 
 
   const editForm = <ProjectEditForm handleEditProject={handleEditProject} setIsEditProject={setIsEditProject} project={selectedProject}/>
    

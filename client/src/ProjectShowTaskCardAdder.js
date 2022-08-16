@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function ProjectShowTaskCardAdder({}) {
+function ProjectShowTaskCardAdder({teamList,project}) {
 
 
   // const [isEdit, setIsEdit] = useState(null)
@@ -10,40 +10,31 @@ function ProjectShowTaskCardAdder({}) {
   const [updaterTask, setUpdaterTask] = useState(
     {
     "name": "",
-    "user_id": '',
-    "project_id": '',
+    "user_id": 0,
+    "project_id": project.id,
     "is_complete": false}
   )
 
-
-
-  // const formReplacer =  
-  //   <form onSubmit={handleSubmit} className='taskItem'>
-  //   <input
-  //   // id={isEdit}
-  //   value={updaterTask['name']}
-  //   onChange={handleChange}
-  //   ></input>
-  // </form>
-
-  // // const nameLi =  <li 
-  // //                   onClick={(e)=>{setIsEdit(e.target.id)}} 
-  // //                   id='name' 
-  // //                   className='taskItem'
-  // //                   >{updaterTask.name}</li> 
-  // // const usernameLi =  <li 
-  // //                   id='username' 
-  // //                   className='taskItem'
-  // //                       >Assigned to: {updaterTask.username}</li> 
-
+  const dropDown = 
+  <select
+        onChange={handleChangeDropDown}
+        id='user_id'
+  >
+    {teamList.map(e=>
+            <option 
+            key={e.id} 
+            value={e.id}
+            >{`${e.username}`}</option>)}
+    </select>
 
   const spanListItems = (
-            <form className='tasklist'>
+            <form onSubmit={handleSubmit} className='tasklist'>
 
                 <input id='name' onChange={(e)=>handleChange(e)}/>
-                <input id='user' onChange={(e)=>handleChange(e)}  />
-                <input id='is_complete'onChange={(e)=>handleChange(e)} />
+                {dropDown}
+                <li onClick={(e)=>{handleCompletedClick(e)}} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
 
+                <button>Add Task!</button>
             </form>
   )
 
@@ -51,7 +42,6 @@ function ProjectShowTaskCardAdder({}) {
     const editTask = {...updaterTask}
     editTask['is_complete'] = !editTask['is_complete']
     setUpdaterTask(editTask)
-    handlePost(editTask)
 
   }
 
@@ -59,19 +49,23 @@ function ProjectShowTaskCardAdder({}) {
     const editTask = {...updaterTask}
     editTask[e.target.id] = e.target.value
     setUpdaterTask(editTask)
-
+  }
+  function handleChangeDropDown(e){
+    const editTask = {...updaterTask}
+    const id = parseInt(e.target.value,10)
+    editTask['user_id'] = id
+    setUpdaterTask(editTask)
   }
 
   function handleSubmit(event){
     event.preventDefault();
-    // setIsEdit(null)
     console.log(updaterTask);
     handlePost(updaterTask)
   }
 
   function handlePost(task){
-  fetch(`/tasks/${updaterTask.id}`, {
-    method: 'PATCH', // or 'PUT'
+  fetch(`/tasks`, {
+    method: 'Post', // or 'PUT'
     headers: {
         'Content-Type': 'application/json',
     },

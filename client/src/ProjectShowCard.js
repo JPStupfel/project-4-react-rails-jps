@@ -3,7 +3,7 @@ import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
 import ProjectShowTaskCardAdder from "./ProjectShowTaskCardAdder";
 
-export default function ProjectShowCard({project, onClickEditButton}){
+export default function ProjectShowCard({project, onClickEditButton, teamList}){
     //will contain an array of id's that are checked
     const [checkedTasks, setCheckedTasks] = useState([])
     const [excludeTasks, setExcludeTasks] = useState([])
@@ -49,9 +49,10 @@ export default function ProjectShowCard({project, onClickEditButton}){
                     {checkedTasks.length ? <button onClick={()=>checkedTasks.forEach(e=>handleDeleteTasks(e))}>Delete Checked Tasks?</button> : null}
                     
                     {tasksCards}
-                    <ProjectShowTaskCardAdder/>
+                    <ProjectShowTaskCardAdder
+                    project={project}
+                    teamList={teamList}/>
 
-                    <button>Add Task!</button>
 
                 </div>
            </div>
