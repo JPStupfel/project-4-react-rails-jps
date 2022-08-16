@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from "react";
 import ProjectCardContainer from "./ProjectCardContainer";
-
+import ProjectAddForm  from "./ProjectAddForm"
 
 export default function ProjectPage({projectList, setProjectList}){
 
-
+const [isAddProject, setIsAddProject]=useState(false)
 
 
 return(
 <>
-    <>Intro Will Go here</>
+{
+    isAddProject ? 
+    <ProjectAddForm setProjectList={setProjectList}/>
+    : 
+    <button onClick={()=>setIsAddProject(prev=>!prev)}>Add Project!</button>
+}
     <ProjectCardContainer projectList={projectList}/>
 </>
 )

@@ -40,7 +40,7 @@ Project.all.each do |project|
 end
 
 Project.all.each do |project|
-
+ddeewwssqqaarrff
     project.tasks.each do |task|
 
         Sequence.create(
