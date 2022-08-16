@@ -40,7 +40,7 @@ function ProjectShowTaskCard({task, handleCheckBox}) {
 
                 {usernameLi}  
 
-                <li onClick={handleCompletedClick} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
+                <li onClick={(e)=>{handleCompletedClick(e)}} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
 
                 <input id={task.id} onChange={(e)=>handleCheckBox(e)} className='checkbox' type="checkbox" />
 

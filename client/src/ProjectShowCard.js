@@ -9,7 +9,7 @@ export default function ProjectShowCard({project, onClickEditButton}){
     
 
     //if no project, return null to avoid no ref error on first load
-    if (!project){return null}
+     if (!project){return <>Loading!</>}
 
     const tasks = project.tasks.filter(e=>excludeTasks.includes(e.id)==false)
     
@@ -23,7 +23,10 @@ export default function ProjectShowCard({project, onClickEditButton}){
     }
 
     function handleDeleteTasks(task_id){
-        fetch(`/tasks/${task_id}`, {method:'DELETE'}).then(setExcludeTasks(prev=>[...prev, parseInt(task_id,10)])).then(console.log(excludeTasks)).catch(e=>console.log(e))
+        fetch(`/tasks/${task_id}`, {method:'DELETE'})
+        .then(
+            setExcludeTasks(prev=>[...prev, parseInt(task_id,10)]))
+            .then(setCheckedTasks([])).catch(e=>console.log(e))
     }
     
     

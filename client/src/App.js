@@ -44,6 +44,8 @@ function App() {
     setProjectList(newProjectList)
   }
 
+  // conditional if not loaded show loading
+  if (!currentUser.id || !teamList.length || !projectList.length) {return(<>Loading!</>)}
 
   return (
     <div className="App">
