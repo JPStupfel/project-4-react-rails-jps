@@ -37,6 +37,7 @@ function ProjectShowPage({teamList}) {
      setSelectedProject(updatedProjectWithTasks)
   }
 
+  if (!selectedProject) {return(<>Loading!</>)}
 
   return (<>{isEditProject ? editForm : showProject}</>)
 

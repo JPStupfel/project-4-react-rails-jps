@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function ProjectShowTaskCardAdder({teamList,project}) {
+function ProjectShowTaskCardAdder({teamList, project}) {
 
 
   // const [isEdit, setIsEdit] = useState(null)

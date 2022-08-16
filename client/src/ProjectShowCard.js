@@ -7,10 +7,9 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
     //will contain an array of id's that are checked
     const [checkedTasks, setCheckedTasks] = useState([])
     const [excludeTasks, setExcludeTasks] = useState([])
-    
+    const [taskList, setTaskList]=useState(project.tasks)
 
-    //if no project, return null to avoid no ref error on first load
-     if (!project){return <>Loading!</>}
+  
 
     const tasks = project.tasks.filter(e=>excludeTasks.includes(e.id)==false)
     
