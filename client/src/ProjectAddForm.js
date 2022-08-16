@@ -4,8 +4,8 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function ProjectAddForm({setProjectList}) {
-    const navigate = useNavigate()
+function ProjectAddForm({handleAddProject, setIsAddProject}) {
+    // const navigate = useNavigate()
 
     const [newProject, setNewProject] = useState({name: null, details:null,duedate:null,budget:null})
 
@@ -43,8 +43,9 @@ function ProjectAddForm({setProjectList}) {
             })
             .then((response) =>response.json())
             .then((data) => {
-            // setProjectList(data);
-            navigate('/');
+              handleAddProject(data);
+            setIsAddProject(prev=>!prev)
+            ;
             })
             .catch((error) => {
             console.error('Errors:', error);

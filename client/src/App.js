@@ -37,6 +37,13 @@ function App() {
     fetch('/me').then(r=>r.json()).then(d=>setCurrentUser(d))
   }, [])
 
+  function handleAddProject(newProject){
+
+    const newProjectList = [...projectList, newProject]
+    
+    setProjectList(newProjectList)
+  }
+
 
   return (
     <div className="App">
@@ -53,8 +60,8 @@ function App() {
         // if logged in, allow these routes
           <>
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
-        <Route path="/team/:id" element={ <ProfilePage teamList={teamList}/>} />
-        <Route path="/projectlist" element={<ProjectPage projectList={projectList} setProjectList={setProjectList}/>} />
+        <Route path="/team/:id" element={ <ProfilePage  teamList={teamList}/>} />
+        <Route path="/projectlist" element={<ProjectPage handleAddProject={handleAddProject} projectList={projectList} setProjectList={setProjectList}/>} />
         <Route path="/projectlist/:id" element={ <ProjectShowPage />} />
         </>
         // if not logged in allow these route
