@@ -33,8 +33,12 @@ function ProjectShowPage({}) {
     setIsEditProject(prev=>!prev)
   }
 
+  //map through new project and update keys, because will want tasks to ermain
   function handleEditProject(updatedProject){
-    setSelectedProject(updatedProject)
+    const updatedProjectWithTasks = {...selectedProject}
+    
+    Object.keys(updatedProject).forEach(e=>updatedProjectWithTasks[e]=updatedProject[e])
+     setSelectedProject(updatedProjectWithTasks)
   }
 
 

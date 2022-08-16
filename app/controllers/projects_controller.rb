@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        # byebug
+        
             project = Project.find params['id']
             if project.valid?
                 project.update project_params
