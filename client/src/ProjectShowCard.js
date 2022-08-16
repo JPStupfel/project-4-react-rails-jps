@@ -23,7 +23,7 @@ export default function ProjectShowCard({project, onClickEditButton}){
                 <p>Due Date: {project.duedate}</p>
 
            </div>
-           <button onClick = {onClickEditButton}>edit this project </button>
+           <button onClick = {onClickEditButton}>Edit Project Details! </button>
            <div>
             <ProjectChart/>
             {tasks}
