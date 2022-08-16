@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function ProjectShowTaskCard({task}) {
+function ProjectShowTaskCard({task, handleCheckBox}) {
   const alertClicked = () => {
     // alert('You clicked the third ListGroupItem');
   };
@@ -11,8 +11,10 @@ function ProjectShowTaskCard({task}) {
 
   const [updaterTask, setUpdaterTask] = useState(task)
 
+
+
   const formReplacer =  
-  <form onSubmit={handleSubmit} className='taskItem'>
+    <form onSubmit={handleSubmit} className='taskItem'>
     <input
     id={isEdit}
     value={updaterTask[isEdit]}
@@ -28,7 +30,7 @@ function ProjectShowTaskCard({task}) {
   const usernameLi =  <li 
                     id='username' 
                     className='taskItem'
-                    >Assigned to: {updaterTask.username}</li> 
+                        >Assigned to: {updaterTask.username}</li> 
 
 
   const spanListItems = (
@@ -39,6 +41,9 @@ function ProjectShowTaskCard({task}) {
                 {usernameLi}  
 
                 <li onClick={handleCompletedClick} className='taskItem'>{updaterTask.is_complete ? 'Complete' : 'Not Complete'}</li>
+
+                <input id={task.id} onChange={(e)=>handleCheckBox(e)} className='checkbox' type="checkbox" />
+
             </ul>
   )
 
@@ -81,6 +86,8 @@ function ProjectShowTaskCard({task}) {
     console.error('Errors:', error);
     });
   }
+
+  
 
   return (
     <ListGroup>

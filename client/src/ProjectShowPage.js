@@ -1,10 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useParams, use } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import ProjectCard from './ProjectCard';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { useParams } from 'react-router-dom';
 import ProjectShowCard from './ProjectShowCard';
 import ProjectEditForm from './ProjectEditForm'
 
