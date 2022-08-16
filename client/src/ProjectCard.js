@@ -27,7 +27,7 @@ export default function ProjectCard({project}){
                     Due Date: {project.duedate}
                 </Card.Text>
                 <Card.Text>
-                <p>{project.tasksRemaining.remaining} tasks out of {project.tasksRemaining.total} tasks remaining.</p>
+                <span>{project.tasksRemaining.remaining} tasks out of {project.tasksRemaining.total} tasks remaining.</span>
                 </Card.Text>
 
           </Card.Body>
