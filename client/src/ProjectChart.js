@@ -13,14 +13,17 @@ import {
 
 export default function ProjectChart({project}) {
 
-// const completedTaskCount = Object.keys(projectList.filter(e=> e.tasksRemaining['remaining'] == 0)).length
+const taskCount = Object.keys(project.tasks).length
+
+const completedTaskCount = Object.keys(project.tasks.filter(e=> e.is_complete == false)).length
+
+
 
 const data = [
     {
       name: "Stats",
-      Users: 500,
-      Projects: 500,
-      Completed_Projects: 500
+      Tasks: taskCount,
+      Completed_Tasks: completedTaskCount
     //   Active:  Object.keys(teamList.filter(e=>Object.keys(e.tasks).length >=1)).length,
       
     }
@@ -43,9 +46,9 @@ const data = [
       <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
       <Tooltip />
       <Legend />
-      <Bar yAxisId="left" dataKey="Users" fill="#8884d8" />
-      <Bar yAxisId="right" dataKey="Projects" fill="#82ca9d" />
-      <Bar yAxisId="right" dataKey="Completed_Projects" fill="#800000" />
+      <Bar yAxisId="left" dataKey="Tasks" fill="#8884d8" />
+      
+      <Bar yAxisId="right" dataKey="Completed_Tasks" fill="#800000" />
     </BarChart>
   );
 }

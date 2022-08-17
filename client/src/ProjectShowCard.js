@@ -63,7 +63,7 @@ export default function ProjectShowCard({project, onClickEditButton, teamList, o
            </div>
            <button onClick = {onClickEditButton}>Edit Project Details! </button>
            <div>
-                <ProjectChart/>
+                <ProjectChart  project={project}/>
                 <div>
                     {checkedTasks.length ? <button onClick={()=>checkedTasks.forEach(e=>handleDeleteTasks(e))}>Delete Checked Tasks?</button> : null}
                     
