@@ -13,6 +13,7 @@ import Signup from './Signup';
 import ProfilePage from './ProfilePage';
 import ProjectPage from './ProjectPage';
 import ProjectShowPage from './ProjectShowPage';
+import HomeContainer from './HomeContainer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({id: null})
@@ -59,7 +60,7 @@ function App() {
       <Routes>
 
         {/* allow these routes whether logged in or not */}
-        <Route path="/" element={<>Home</>} />
+        <Route path="/" element={<HomeContainer teamList={teamList}/>} />
       
         
         {/* conditionally render routes */}
