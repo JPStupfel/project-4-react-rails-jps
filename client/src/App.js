@@ -60,13 +60,13 @@ function App() {
       <Routes>
 
         {/* allow these routes whether logged in or not */}
-        <Route path="/" element={<HomeContainer projectList={projectList} teamList={teamList}/>} />
       
         
         {/* conditionally render routes */}
         { currentUser.id ?
         // if logged in, allow these routes
           <>
+        <Route path="/" element={<HomeContainer projectList={projectList} teamList={teamList}/>} />
         <Route path="/team" element={ <Teampage teamList={teamList} setTeamList={setTeamList}/>} />
         <Route path="/team/:id" element={ <ProfilePage  teamList={teamList}/>} />
         <Route path="/projectlist" element={<ProjectPage handleAddProject={handleAddProject} projectList={projectList} setProjectList={setProjectList}/>} />
