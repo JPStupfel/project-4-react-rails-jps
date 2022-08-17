@@ -66,3 +66,7 @@
 .checkbox{
 color: red
 }
+.delete-project-button{
+  height: 100%;
+  display: flex;
+}

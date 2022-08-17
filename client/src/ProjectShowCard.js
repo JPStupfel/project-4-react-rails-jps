@@ -1,13 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
 import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
 import ProjectShowTaskCardAdder from "./ProjectShowTaskCardAdder";
 
 export default function ProjectShowCard({project, onClickEditButton, teamList}){
+
     //will contain an array of id's that are checked
     const [checkedTasks, setCheckedTasks] = useState([])
     const [excludeTasks, setExcludeTasks] = useState([])
     const [taskList, setTaskList]=useState(project.tasks)
+
+    const navigate = useNavigate()
 
   
 
@@ -33,6 +38,11 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
        const newTaskList = [...taskList, task]
        setTaskList(newTaskList)
        console.log(task)
+    }
+
+    function handleProjectDelete(event){
+        console.log('will delete');
+        navigate('/projectlist')
     }
     
     
@@ -62,6 +72,9 @@ export default function ProjectShowCard({project, onClickEditButton, teamList}){
 
                 </div>
            </div>
+           <button className="delete-project-button"
+            onClick={handleProjectDelete}>Delete this Project!
+          </button>
         </span>
     )
 }
