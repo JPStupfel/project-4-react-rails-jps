@@ -23,14 +23,14 @@ function App() {
       useEffect(
         ()=>{
             fetch('/projects').then(r=>r.json()).then(d=>setProjectList(d)).catch(r=>console.log(r))
-        },[]
+        },[currentUser]
     )
 
     //fetch users
     useEffect(
       ()=>{
           fetch('/users').then(r=>r.json()).then(d=>setTeamList(d)).catch(r=>console.log(r))
-      },[]
+      },[currentUser]
   )
   //set current user by fetch request checked against session on backend
   useEffect(()=>{
@@ -45,7 +45,7 @@ function App() {
   }
 
   // conditional if not loaded show loading
-  if (!currentUser.id || !teamList.length || !projectList.length) {return(<>Loading!</>)}
+  if (currentUser.id && (!teamList.length || !projectList.length)) {return(<>Loading!</>)}
 
   return (
     <div className="App">
