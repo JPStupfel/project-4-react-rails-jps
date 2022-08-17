@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import HomeChart from './HomeStats';
 
-export default function HomeContainer({teamList}){
+export default function HomeContainer({teamList, projectList}){
     return(
         <div>
-            <HomeChart teamList={teamList}/>
+            <HomeChart projectList={projectList} teamList={teamList}/>
         </div>
     )
 }

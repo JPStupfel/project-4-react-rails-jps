@@ -11,14 +11,19 @@ import {
 } from "recharts";
 
 
-export default function HomeChart({teamList}) {
+export default function HomeChart({teamList, projectList}) {
+
+
+const completedProjectCount = Object.keys(projectList.filter(e=> e.tasksRemaining['remaining'] == 0)).length
 
 const data = [
     {
       name: "Stats",
       Users: Object.keys(teamList).length,
+      Projects: Object.keys(projectList).length,
+      Completed_Projects: completedProjectCount
     //   Active:  Object.keys(teamList.filter(e=>Object.keys(e.tasks).length >=1)).length,
-      amt: 2400
+      
     }
   ];
   return (
@@ -40,7 +45,8 @@ const data = [
       <Tooltip />
       <Legend />
       <Bar yAxisId="left" dataKey="Users" fill="#8884d8" />
-      <Bar yAxisId="right" dataKey="Active" fill="#82ca9d" />
+      <Bar yAxisId="right" dataKey="Projects" fill="#82ca9d" />
+      <Bar yAxisId="right" dataKey="Completed_Projects" fill="#800000" />
     </BarChart>
   );
 }

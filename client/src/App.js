@@ -60,7 +60,7 @@ function App() {
       <Routes>
 
         {/* allow these routes whether logged in or not */}
-        <Route path="/" element={<HomeContainer teamList={teamList}/>} />
+        <Route path="/" element={<HomeContainer projectList={projectList} teamList={teamList}/>} />
       
         
         {/* conditionally render routes */}
