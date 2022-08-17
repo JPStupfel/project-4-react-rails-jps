@@ -16,7 +16,7 @@ export default function ProfileCard({user}){
            </div>
 
            <div>
-            <UserChart/>
+            <UserChart user={user}/>
            </div>
            <h1>All Projects I'm involved in!</h1>
            <UserShowProjectContainer projectList={user.projects}/>
