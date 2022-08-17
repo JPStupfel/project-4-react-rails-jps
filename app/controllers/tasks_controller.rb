@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+   
+    before_action :require_login
+
     def index
         render json: Task.all, status: 200
     end
@@ -37,5 +40,11 @@ class TasksController < ApplicationController
     private
     def task_params 
         params.permit :name, :is_complete, :user_id, :project_id
+    end
+
+    def require_login
+        unless session.include? :user_id
+            render json: {errors: ['sign in first']}, status: 422
+        end
     end
 end

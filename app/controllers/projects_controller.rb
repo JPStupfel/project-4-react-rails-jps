@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    
+    before_action :require_login
 
     def index
         if session[:user_id]
@@ -44,6 +44,12 @@ class ProjectsController < ApplicationController
     private
     def project_params
         params.permit :name, :details, :duedate, :budget
+    end
+
+    def require_login
+        unless session.include? :user_id
+            render json: {errors: ['sign in first']}, status: 422
+        end
     end
 
 

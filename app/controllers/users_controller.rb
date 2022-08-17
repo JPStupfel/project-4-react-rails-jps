@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
+   before_action :require_login
+
+    
     def index
-        if session[:user_id]
          render json: User.all, status: 200
-        else
-            render json: {errors: ['sign in first']}, status: 422
-        end
     end
 
     def create
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
         if user
             render json: user, serializer: UserTasksSerializer ,status: 201
         else
-            render json: {errrors: ['log in first']}, status: 401
+            render json: {errrors: user.errors.full_messages}, status: 401
         end
     end
 
@@ -31,4 +30,11 @@ class UsersController < ApplicationController
     def user_params
         params.permit :username, :bio, :image, :age, :password, :password_confirmation
     end
+
+    def require_login
+        unless session.include? :user_id
+            render json: {errors: ['sign in first']}, status: 422
+        end
+    end
+
 end
