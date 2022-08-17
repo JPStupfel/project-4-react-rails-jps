@@ -13,7 +13,9 @@ export default function HomeContainer({teamList, projectList}){
                 <HomeInfoCard  
                 projectList={projectList} 
                 teamList={teamList} />
+            
             </span>
+
         </div>
     )
 }
