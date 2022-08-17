@@ -33,9 +33,20 @@ class ProjectsController < ApplicationController
             else
                 render json: {errors: project.errors.full_messages}, status: 422
             end
+    end
+
+    def destroy
+        project = Project.find params['id']
+        if project.valid?
+            project.destroy
+            render json: {message: "deleted"}, status: 204
+        else
+            render json: {errors: project.errors.full_messages}, status: 422
+        end
+    end
         
 
-    end
+    
 
     private
     def project_params

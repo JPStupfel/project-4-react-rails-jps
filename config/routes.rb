@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :tasks, only: [:index, :update, :destroy, :create]
-  resources :projects, only: [:index, :create, :show, :update]
+  resources :projects, only: [:index, :create, :show, :update, :destroy]
   resources :users, only: [:index, :create, :show]
 
   post "/login", to: 'sessions#create'
