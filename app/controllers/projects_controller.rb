@@ -2,11 +2,7 @@ class ProjectsController < ApplicationController
     before_action :require_login
 
     def index
-        if session[:user_id]
             render json: Project.all
-        else
-            render json: {error: 'Log in first'}, status: 401
-        end
     end
 
     def show
@@ -14,7 +10,7 @@ class ProjectsController < ApplicationController
         if project
             render json: project, serializer: ProjectShowSerializer, status: 200
         else
-            render json: {errrors: ['log in first']}, status: 401
+            render json: {errrors: ['no project found']}, status: 401
         end
     end
 
