@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 
 function Signup({setCurrentUser}) {
     const navigate = useNavigate()
-    const [newUser, setNewUser] = useState({username: null, bio:null,image:null,age:null,password:null,password_confirmation:null})
+    const [newUser, setNewUser] = useState({username: null, bio:null, image:null,age:null,password:null,password_confirmation:null})
 
 
     // dry version of each input based on all the keys in newUser
@@ -15,8 +15,9 @@ function Signup({setCurrentUser}) {
         <Form.Label>{e}</Form.Label>
         <Form.Control 
         onChange={handleChange} 
-        type={ e.includes('password') ? 'password' : e }
-        placeholder={`Enter ${e}`}/>
+        type={ e.includes('password') ? 'password' : `${e}` }
+        placeholder={`Enter ${e}`}
+        type="text"/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>)
