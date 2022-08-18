@@ -15,9 +15,9 @@ function Signup({setCurrentUser}) {
         <Form.Label>{e}</Form.Label>
         <Form.Control 
         onChange={handleChange} 
-        type={ e.includes('password') ? 'password' : `${e}` }
+        type={ e.includes('password') ? 'password' : null }
         placeholder={`Enter ${e}`}
-        type="text"/>
+        />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>)
