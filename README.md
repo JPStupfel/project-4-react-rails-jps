@@ -11,6 +11,10 @@ Projectum is a project management application where you can:
 -Assign tasks to other team members.
 -Edit and Delete Projects and Tasks.
 
+## A video walkthrough for this site can be found at:
+
+<https://youtu.be/328VtYuWQ3A>
+
 ## Requirements
 
 - Ruby 2.7.4
