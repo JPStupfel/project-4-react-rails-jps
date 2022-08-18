@@ -8,7 +8,6 @@ export default function Teampage({teamList}){
 
 return(
 <>
-    <>Intro Will Go here</>
     <TeamCardContainer teamList={teamList}/>
 </>
 )
