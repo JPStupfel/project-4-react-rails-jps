@@ -9,10 +9,10 @@ function UserShowTaskCard({task}) {
   const spanListItem = (
             <ul className='tasklist'>
                 <li className='taskItem'>{task.name}</li>              
-                <li className='taskItem'> Assigned to {task.username}</li>
                 <li className='taskItem'>{task.is_complete ? 'Complete' : 'Not Complete'}</li>
             </ul>
   )
+  
 
   return (
     <ListGroup>
