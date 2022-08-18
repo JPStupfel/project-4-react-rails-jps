@@ -39,12 +39,4 @@ Project.all.each do |project|
     end
 end
 
-Project.all.each do |project|
-    project.tasks.each do |task|
 
-        Sequence.create(
-                        parent_id: task.id,
-                        child_id: task.id + 1
-                    )
-    end
-end

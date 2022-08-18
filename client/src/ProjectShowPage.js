@@ -30,7 +30,7 @@ function ProjectShowPage({teamList, onDeleteProject}) {
     setIsEditProject(prev=>!prev)
   }
 
-  //map through new project and update keys, because will want tasks to ermain
+  //map through new project and update keys, because will want tasks to remain
   function handleEditProject(updatedProject){
     const updatedProjectWithTasks = {...selectedProject}
     

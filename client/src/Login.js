@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -17,9 +17,8 @@ function Login({setCurrentUser}) {
 
     function handleSubmit(event){
         event.preventDefault()
-
-                    fetch('/login', {
-            method: 'POST', // or 'PUT'
+        fetch('/login', {
+            method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
             },

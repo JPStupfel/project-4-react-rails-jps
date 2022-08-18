@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import TeamCardContainer from "./TeamCardContainer";
 
-export default function Teampage({teamList, setTeamList}){
+export default function Teampage({teamList}){
 
 
 

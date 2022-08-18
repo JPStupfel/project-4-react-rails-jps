@@ -22,7 +22,6 @@ const data = [
       Users: Object.keys(teamList).length,
       Projects: Object.keys(projectList).length,
       Completed_Projects: completedProjectCount
-    //   Active:  Object.keys(teamList.filter(e=>Object.keys(e.tasks).length >=1)).length,
       
     }
   ];

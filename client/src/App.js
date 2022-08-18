@@ -1,12 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './Navbar';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
+import {BrowserRouter, Routes, Route,
 } from "react-router-dom";
-import ReactDOM from "react-dom/client";
 import Teampage from './Teampage';
 import Login from './Login';
 import Signup from './Signup';
@@ -55,11 +51,11 @@ function App() {
 
   return (
     <div className="App">
+              {/* allow these routes whether logged in or not */}
       <Navbar setCurrentUser={setCurrentUser} currentUser={currentUser} />
 
       <Routes>
 
-        {/* allow these routes whether logged in or not */}
       
         
         {/* conditionally render routes */}

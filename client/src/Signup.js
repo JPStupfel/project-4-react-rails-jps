@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -9,7 +9,7 @@ function Signup({setCurrentUser}) {
     const [newUser, setNewUser] = useState({username: null, bio:null,image:null,age:null,password:null,password_confirmation:null})
 
 
-    // dry versino of each input based on all the keys in newUser
+    // dry version of each input based on all the keys in newUser
     const forms = Object.keys(newUser).map(e=>{
        return ( <Form.Group className="mb-3" controlId={e}>
         <Form.Label>{e}</Form.Label>

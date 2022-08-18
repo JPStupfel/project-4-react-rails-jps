@@ -1,4 +1,3 @@
-// import "./styles.css";
 import React from "react";
 import {
   BarChart,
@@ -19,7 +18,6 @@ export default function UserChart({user}) {
 
  const projectCount = Object.keys(user.projects).length
 
- console.log(user)
 
 const data = [
     {

@@ -1,8 +1,5 @@
-import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import ProjectCard from './ProjectCard';
 import UserShowProjectCard from './UserShowProjectCard';
 
 function UserShowProjectContainer({projectList}) {

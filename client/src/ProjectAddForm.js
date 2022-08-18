@@ -1,16 +1,14 @@
 
 import React, {useState} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 function ProjectAddForm({handleAddProject, setIsAddProject}) {
-    // const navigate = useNavigate()
 
     const [newProject, setNewProject] = useState({name: null, details:null,duedate:null,budget:null})
 
 
-    // dry versino of each input based on all the keys in newProject
+    // dry version of each input based on all the keys in newProject
     const forms = Object.keys(newProject).map(e=>{
        return ( <Form.Group key={e} className="mb-3" controlId={e}>
         <Form.Label>{e}</Form.Label>

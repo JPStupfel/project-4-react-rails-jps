@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useParams, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import ProjectChart from "./ProjectChart";
 import ProjectShowTaskCard from "./ProjectShowTaskCard";
@@ -37,7 +37,6 @@ export default function ProjectShowCard({project, onClickEditButton, teamList, o
     function handleAddTask(task){
        const newTaskList = [...taskList, task]
        setTaskList(newTaskList)
-       console.log(task)
     }
 
     function handleProjectDelete(event){

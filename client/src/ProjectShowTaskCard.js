@@ -4,7 +4,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function ProjectShowTaskCard({task, handleCheckBox}) {
   const alertClicked = () => {
-    // alert('You clicked the third ListGroupItem');
   };
 
   const [isEdit, setIsEdit] = useState(null)
@@ -65,7 +64,6 @@ function ProjectShowTaskCard({task, handleCheckBox}) {
   function handleSubmit(event){
     event.preventDefault();
     setIsEdit(null)
-    console.log(updaterTask);
     handlePost(updaterTask)
   }
 
